@@ -25,3 +25,5 @@ def isThereASum2(arr, k):
 
 
 print(isThereASum2([10, 15, 3, 7], 17))
+
+# Correct Solution
