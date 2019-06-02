@@ -4,6 +4,9 @@
 # Brute Force Approach
 
 
+from bisect import bisect_left
+
+
 def isThereASum(arr, k):
     for i in arr:
         (print(i))
@@ -29,15 +32,19 @@ print(isThereASum2([10, 15, 3, 7], 17))
 # Correct Solutions
 
 # Brute Force
+
+
 def two_sum(lst, k):
     for i in range(len(lst)):
         for j in range(len(lst)):
             if i != j and lst[i] + lst[j] == k:
                 return True
-  return False
+    return False
 
 # This would take O(N2). Another way is to use a set to remember the numbers we've seen so far. Then for a given number, we can check if there is another number that, if added, would sum to k. This would be O(N) since lookups of sets are O(1) each.
-def two_sum(lst, k):
+
+
+def two_sum2(lst, k):
     seen = set()
     for num in lst:
         if k - num in seen:
@@ -47,10 +54,8 @@ def two_sum(lst, k):
 
 # Yet another solution involves sorting the list. We can then iterate through the list and run a binary search on K - lst[i]. Since we run binary search on N elements, this would take O(N log N) with O(1) space.
 
-from bisect import bisect_left
 
-
-def two_sum(lst, K):
+def two_sum3(lst, K):
     lst.sort()
 
     for i in range(len(lst)):
@@ -69,6 +74,7 @@ def two_sum(lst, K):
         elif j - 1 >= 0 and lst[j - 1] == target:
             return True
     return False
+
 
 def binary_search(lst, target):
     lo = 0
