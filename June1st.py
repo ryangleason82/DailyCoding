@@ -28,9 +28,6 @@ def elseProduct2(lst):
     return arr
 
 
-print(elseProduct2([1, 2, 3, 4, 5]))
-
-
 # Solution
 def products(nums):
     # Generate prefix products
@@ -38,6 +35,7 @@ def products(nums):
     for num in nums:
         if prefix_products:
             prefix_products.append(prefix_products[-1] * num)
+            print(prefix_products)
         else:
             prefix_products.append(num)
 
@@ -46,6 +44,7 @@ def products(nums):
     for num in reversed(nums):
         if suffix_products:
             suffix_products.append(suffix_products[-1] * num)
+            print(suffix_products)
         else:
             suffix_products.append(num)
     suffix_products = list(reversed(suffix_products))
@@ -60,3 +59,6 @@ def products(nums):
         else:
             result.append(prefix_products[i - 1] * suffix_products[i + 1])
     return result
+
+
+print(products([1, 2, 3, 4, 5]))
