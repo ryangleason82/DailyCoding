@@ -42,3 +42,32 @@ class LinkedList:
 
 
 print(lowestInt([3, 4, -1, 1]))
+
+
+# The key to this problem was mapping it to the indices. Two solutions are below.w
+# Sorting was a bad idea because it takes O(nlogn) and we can't have that.
+
+def first_missing_positive(nums):
+    if not nums:
+        return 1
+    for i, num in enumerate(nums):
+        while i + 1 != nums[i] and 0 < nums[i] <= len(nums):
+            v = nums[i]
+            nums[i], nums[v - 1] = nums[v - 1], nums[i]
+            if nums[i] == nums[v - 1]:
+                break
+    for i, num in enumerate(nums, 1):
+        if num != i:
+            return i
+    return len(nums) + 1
+
+# This is very simple and I'm a little mad I didn't think of it. Iterates through and
+# if the index exists in the array it goes until it doesn't.. returns missing one
+
+
+def first_missing_positives(nums):
+    s = set(nums)
+    i = 1
+    while i in s:
+        i += 1
+    return i
