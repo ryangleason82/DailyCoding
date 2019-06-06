@@ -6,3 +6,18 @@
 #         return f(a, b)
 #     return pair
 # Implement car and cdr
+
+
+def cons(a, b):
+    return lambda m: m(a, b)
+
+
+def car(cons):
+    return cons(lambda a, b: a)
+
+
+def cdr(cons):
+    return cons(lambda a, b: b)
+
+
+print(car(cons(3, 4)))
