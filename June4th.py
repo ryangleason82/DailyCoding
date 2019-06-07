@@ -21,3 +21,13 @@ def cdr(cons):
 
 
 print(car(cons(3, 4)))
+
+# The solution they provided
+
+
+def car1(pair):
+    return pair(lambda a, b: a)
+
+
+def cdr1(pair):
+    return pair(lambda a, b: b)
