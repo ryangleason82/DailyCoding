@@ -39,3 +39,23 @@
   - Input to car and cdr is the anonymous function (pair)
   - So in order to get a and b back, we feed it another function
     - One that atkes in two parameters and returns the first if car, last if cdr.
+
+6/5/19
+
+- A good opportunity to learn about XOR Linked list
+- Instead of storing actual memory addresses, every node stores the XOR of address of prev and next nodes
+- Ordinary representation of linked list:
+
+  - Node A: prev = NULL, next = add(B) // Prev is NULL and next is address of B
+  - Node B: prev = add(A), next = add(C)
+  - Node C: prev = add(B), next = add(D)
+  - Node D: prev = add(C), next = NULL
+
+- XOR List Representation npx (XOR of next and prev)
+
+  - Node A: npx = 0 XOR add(B) //bitwise XOR of zero and address of B
+  - Node B: npx = add(A) XOR add(c)
+  - Node C: npx = add(B) XOR add(d)
+  - Node D: npx = add(c) xor 0
+
+  - When traversing we must remember the address of the previous and next nodes
